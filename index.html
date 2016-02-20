@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="photoSlicerApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Raw Ideas Test</title>
+	<link rel="stylesheet" href="./dist/style.css" />
+	<script type="text/javascript" src="./dist/bundle.js"></script>
+</head>
+<body ng-controller="mainController as ctrl">
+		<header>
+			<h1>{{ ctrl.title }}</h1>
+			<span src="//rawideas.com/themes/default/assets/images/rawideas.png"></span>
+		</header>
+		<main class="container">
+			<section class="content">
+
+					<h2>
+							Create a photo slicer
+							<input type="file" ng-click="ctrl.myValue=false;ctrl.displayTile='';" image-loader="files"/>
+					</h2>
+					<div class="">
+						<!-- <input type="text" ng-model="ctrl.fileName" name="name" value="" placeholder="filename.jpg"> -->
+						<label for="">X-Axis:</label>
+						<input type="tel" ng-model="ctrl.xAxis"/>
+						<label for="">Y-Axis:</label>
+						<input type="tel" ng-model="ctrl.yAxis"/>
+						<button type="button" class="randomise" ng-click="ctrl.createSegments()" name="button">Randomise Image</button>
+					</div>
+				</section>
+				<section class="tile-content">
+					<span class="img-container" ng-style="{height: ctrl.containerHeight+'px', width: ctrl.containerWidth+'px'}">
+						<img alt="" ng-hide="ctrl.myValue" src="url.JPG"/>
+						<div class="tile" ng-repeat="tile in ctrl.displayTile track by $index"
+									ng-style="{	height : (ctrl.tileHeight +'px'),
+														width:(ctrl.tileWidth +'px'),
+														background:'url(' + ctrl.backGroundimg + ')',
+														'background-position-x': tile.xPos+'px',
+														'background-position-y': tile.yPos+'px',
+													 	clear: tile.clearVal	}">
+						</div>
+					</span>
+				</section>
+			</main>
+</body>
+</html>
