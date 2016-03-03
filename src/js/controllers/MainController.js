@@ -2,7 +2,7 @@
 const angular = require('angular');
 export default class MainController {
 	constructor() {
-		this.title = 'Raw Ideas JavaScript Test';
+		this.title = 'Angular Image splicer';
 		this.xAxis = 1;
 		this.yAxis = 1;
 		this.file=null;
